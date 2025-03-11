@@ -32,4 +32,5 @@ module "project" {
     "serviceusage.googleapis.com",
     "storage-api.googleapis.com",
   ]
+  deletion_policy = "DELETE"
 }
