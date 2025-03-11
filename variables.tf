@@ -150,6 +150,11 @@ variable "labels" {
   default     = {}
 }
 
+variable "silly_label" {
+  description = "Sample label for bucket."
+  type        = string
+}
+
 variable "folders" {
   description = "Map of lowercase unprefixed name => list of top level folder objects."
   type        = map(list(string))
