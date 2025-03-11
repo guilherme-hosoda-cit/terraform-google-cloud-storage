@@ -52,10 +52,11 @@ func TestMultipleBuckets(t *testing.T) {
 			assert.Equal("SetStorageClass", lifecycle.Get("action.type").String(), "lifecycle action is SetStorageClass")
 			assert.Equal("10", lifecycle.Get("condition.age").String(), "lifecycle condition is age 10")
 			assert.ElementsMatch([]string{"MULTI_REGIONAL", "STANDARD", "DURABLE_REDUCED_AVAILABILITY"}, utils.GetResultStrSlice(lifecycle.Get("condition.matchesStorageClass").Array()), "lifecycle conditions match")
+			assert.Equal("pretty-label", op.Get("labels.silly"), "silly label is pretty-label")
 
 			// peel bucket name from prefix and randomized suffix
 			parts := strings.Split(fullBucketName, "-")
-			bucketName := parts[len(parts) - 2]
+			bucketName := parts[len(parts)-2]
 
 			switch bucketName {
 			case "one":
